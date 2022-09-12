@@ -1,0 +1,14 @@
+.nav {
+    
+}
+
+.nav-list{
+    display: flex;
+    flex-direction: row;
+    text-transform: uppercase;
+    list-style: none;
+}
+
+.nav-list-item {
+    padding-left: 10px;
+}
