@@ -1,14 +1,53 @@
-.nav {
-    
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
+.nav{
+    display: grid;
+    grid-auto-columns: 50% 40% 10%;
+    grid-template-rows: 100%;
+    grid-template-areas: "logo nav widget";
+    background-color: rgb(43, 34, 34);
+    height: 100px;
+    position: sticky;
+}
 .nav-list{
     display: flex;
+    grid-area: nav;
     flex-direction: row;
     text-transform: uppercase;
     list-style: none;
+    justify-content: center;
+    align-items: center;
 }
 
 .nav-list-item {
     padding-left: 10px;
+    font-size: larger;
+}
+
+.logo{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: -40px;
+    margin-left: 40px;
+    width: 200px;
+    height: 200px;   
+    grid-area: logo;
+}
+
+.btn-carrito{
+    grid-area: widget;
+    display: inline-block;
+    margin-top: 30px;
+    width: 40px;
+    height: 40px;
+    background: rgb(65, 51, 51);
+    color: white;
+    font-size: larger;
+    
 }

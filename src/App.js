@@ -1,14 +1,15 @@
 import './App.css';
-import Header from'./componentes/Header/Header'
-import NavBar from'./componentes/NavBar/Nav'
+import Body from './componentes/Body/Body';
+import NavBar from './componentes/NavBar/Nav';
+import Productos from './componentes/Productos/Productos';
+
 
 
 function App() {
-  let tittle = "Menu E-commerce";
   return (
     <div className="App">
-      <Header/>
-        <NavBar/>
+      <NavBar />
+      <Productos greeting="Bienvenidos a mi tienda geek"/>
     </div>
   );
 }

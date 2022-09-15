@@ -1,0 +1,5 @@
+.banner{
+    position: fixed;
+    z-index: 100;
+    background: rgb(219, 6, 6);
+}
