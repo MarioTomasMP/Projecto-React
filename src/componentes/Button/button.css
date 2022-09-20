@@ -1,0 +1,27 @@
+.btn{
+    width: 30px;
+    height: 30px;
+    border: 1px solid grey;
+    border-radius: 3px;
+    box-shadow: 0 0 5px 0 rgba(236, 26, 26, 0.514);
+    background: rgba(17, 14, 14, 0.301);
+    font-size: larger;
+    font-style: oblique;
+    font-weight: 550;
+    cursor: pointer;
+}
+
+.btn:hover{
+    transform: scale(1.1);
+}
+
+.span{
+    width: 60px;
+    padding: 4px 10px;
+    background: white;
+    position: relative;
+    border-radius: 2px;
+    color: rgb(0, 0, 0);
+    box-shadow: 0 0 5px 0 rgba(236, 26, 26, 0.514);
+    background: rgba(168, 163, 163, 0.493);
+}

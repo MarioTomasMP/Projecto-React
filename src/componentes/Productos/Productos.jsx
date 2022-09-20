@@ -1,8 +1,18 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import Tarjeta from './Tarjeta'
 import "./tarjeta.css"
 
 function Productos(props) {
+
+  function getItemsFromDatabase(){
+    console.log("Items listos")
+  }
+
+  useEffect(
+    ()=>{ getItemsFromDatabase();
+    }, {}
+  )
+
   return (
     <div img src="../../Polygon Luminary.svg" className='fondo'>
       <h2>{props.greeting}</h2>

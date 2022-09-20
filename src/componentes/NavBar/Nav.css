@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}   
+
 .nav{
     display: grid;
     grid-auto-columns: 50% 40% 10%;
@@ -17,16 +21,21 @@
     display: flex;
     grid-area: nav;
     flex-direction: row;
-    text-transform: uppercase;
     list-style: none;
     justify-content: center;
     align-items: center;
 }
 
-.nav-list-item {
+.nav-link {
     padding-left: 10px;
-    font-size: larger;
+    font-size: x-large;
+    font-weight: 600;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-decoration: none !important
 }
+
+
 
 .logo{
     display: flex;
