@@ -1,22 +1,26 @@
-import React, {useEffect} from 'react'
+import React, {useState, useEffect} from 'react'
 import Tarjeta from './Tarjeta'
 import "./tarjeta.css"
+import loadProducts  from '../../services/mockAPI'
+import itemList from '../Productos/itemList'
 
 function Productos(props) {
 
-  function getItemsFromDatabase(){
-    console.log("Items listos")
-  }
-
+  let [items, setItems] = useState([]);
   useEffect(
-    ()=>{ getItemsFromDatabase();
-    }, {}
-  )
+    ()=>{
+      console.log("useEffect")
+      loadProducts().then (response => {
+        setItems(response)
+      });
+    }, {});
+
 
   return (
     <div img src="../../Polygon Luminary.svg" className='fondo'>
       <h2>{props.greeting}</h2>
-      <div className='container-novedades'> 
+      {/* <div className='container-novedades'> 
+      
             <Tarjeta
               title="Funko Pop" 
               descripcion="Nuevo muñeco Funko de Naruto,¡Compralo Ahora! " 
@@ -53,6 +57,17 @@ function Productos(props) {
               precio={5799}
               img="https://m.media-amazon.com/images/S/aplus-media/sota/6f74a76e-07c5-4b26-b9a9-80a26e0aa282._CR0,0,300,300_PT0_SX300__.jpg"
             />
+      </div> */}
+      <div className='container-novedades'>
+          {/* {items.map((item) => {
+            return (<Tarjeta
+              key = {item.id}
+              title = {item.title}
+              descripcion = {item.detail}
+              precio = {item.price}/>
+            );
+          })} */}
+          <itemList items={items}/>
       </div>
     </div>
   )
