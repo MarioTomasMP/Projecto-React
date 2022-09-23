@@ -1,9 +1,11 @@
 import React from 'react'
 import Tarjeta from './Tarjeta';
 
-function itemList(props) {
+function ItemList(props) {
+
+  
   return (
-    <div>
+    <div className="container-novedades">
         {props.items.map((item) => {
             return (<Tarjeta
               key = {item.id}
@@ -16,4 +18,4 @@ function itemList(props) {
   )
 }
 
-export default itemList
+export default ItemList

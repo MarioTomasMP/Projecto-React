@@ -23,13 +23,13 @@ function Itemcount(props) {
 
   return (
     <div>
-        <button style={{color: colortoggle? "brown" : "red"}}
+        <button disabled={count <=1} style={{color: colortoggle? "brown" : "red"}}
         onClick={handleSus} 
         className='btn'>
             -
         </button>
         <span className='span'>{count}</span>
-        <button style={{color: colortoggle? "brown" : "red"}}
+        <button disabled={count >= props.stock} style={{color: colortoggle? "brown" : "red"}}
         onClick={handleAdd}
         className='btn'>
             +

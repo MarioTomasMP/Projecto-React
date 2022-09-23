@@ -1,5 +1,4 @@
 import React from 'react';
-// import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Itemcount from '../itemCount/ItemCount';
 import "./tarjeta.css";
@@ -17,7 +16,6 @@ function Tarjeta(props) {
           {props.descripcion}
         </Card.Text>
         <h4>$ {props.precio}</h4>
-        {/* <Button variant="primary" className='btn-verMas'><a href="#">ver más</a></Button> */}
       
         <Itemcount initial ={1} stock={5}/>
       </Card.Body>

@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import Tarjeta from './Tarjeta'
 import "./tarjeta.css"
 import loadProducts  from '../../services/mockAPI'
-import itemList from '../Productos/itemList'
+import ItemList from '../Productos/itemList'
 
 function Productos(props) {
 
@@ -59,15 +59,7 @@ function Productos(props) {
             />
       </div> */}
       <div className='container-novedades'>
-          {/* {items.map((item) => {
-            return (<Tarjeta
-              key = {item.id}
-              title = {item.title}
-              descripcion = {item.detail}
-              precio = {item.price}/>
-            );
-          })} */}
-          <itemList items={items}/>
+          <ItemList items={items}/>
       </div>
     </div>
   )
