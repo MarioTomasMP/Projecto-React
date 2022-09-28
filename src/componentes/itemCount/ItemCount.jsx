@@ -3,13 +3,9 @@ import "../Button/button.css"
 
 
 function Itemcount(props) {
-
-    console.log("Stock:", props.stock)
     const [count, setclickCount] = React.useState(props.initial);
     let [color, setColor] = useState("brown");
     let [colortoggle, setColortoggle] = useState(true);
-    
-    console.log("Stock:", props.stock);
 
     function handleAdd(){
         setclickCount(count+1)

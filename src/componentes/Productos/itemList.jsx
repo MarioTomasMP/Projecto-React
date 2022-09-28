@@ -9,6 +9,7 @@ function ItemList(props) {
         {props.items.map((item) => {
             return (<Tarjeta
               key = {item.id}
+              img = {item.img}
               title = {item.title}
               descripcion = {item.detail}
               precio = {item.price}/>

@@ -9,11 +9,10 @@ function Productos(props) {
   let [items, setItems] = useState([]);
   useEffect(
     ()=>{
-      console.log("useEffect")
       loadProducts().then (response => {
         setItems(response)
       });
-    }, {});
+    }, []);
 
 
   return (
@@ -58,7 +57,7 @@ function Productos(props) {
               img="https://m.media-amazon.com/images/S/aplus-media/sota/6f74a76e-07c5-4b26-b9a9-80a26e0aa282._CR0,0,300,300_PT0_SX300__.jpg"
             />
       </div> */}
-      <div className='container-novedades'>
+      <div>
           <ItemList items={items}/>
       </div>
     </div>

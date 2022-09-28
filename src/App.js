@@ -1,7 +1,8 @@
 import './App.css';
-import Itemcount from './componentes/itemCount/ItemCount';
+import ItemDetailContainer from './componentes/itemDetail/ItemDetailContainer';
+
 import NavBar from './componentes/NavBar/Nav';
-import Productos from './componentes/Productos/Productos';
+// import Productos from './componentes/Productos/Productos';
 
 
 
@@ -9,8 +10,10 @@ function App() {
   return (
     <div className="App">
       <NavBar />
-      <Productos greeting="Bienvenidos a mi tienda geek"/>
-      <Itemcount initial ={1} stock={5}/>
+      <><h1>Detalle de item</h1>
+      </>
+      {/* <Productos greeting="Bienvenidos a mi tienda geek"/> */}
+      <ItemDetailContainer/>
     </div>
   );
 }
