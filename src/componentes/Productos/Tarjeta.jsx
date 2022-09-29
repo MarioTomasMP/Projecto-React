@@ -1,11 +1,13 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
-import Itemcount from '../itemCount/ItemCount';
 import "./tarjeta.css";
+import { Link } from 'react-router-dom';
 
 
 function Tarjeta(props) {
-  console.log(props)
+
+  const url = `/producto/${props.id}`
+  
   return (
     <div>
     <Card style={{ width: '19rem' }} className="tarjeta">
@@ -16,8 +18,11 @@ function Tarjeta(props) {
           {props.descripcion}
         </Card.Text>
         <h4>$ {props.precio}</h4>
-      
-        <Itemcount initial ={1} stock={5}/>
+        <Link to={url}>
+          <button>
+            ver más
+          </button>
+        </Link>
       </Card.Body>
     </Card>
     </div>

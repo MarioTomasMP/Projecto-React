@@ -1,17 +1,19 @@
-import React from 'react'
-import { useEffect } from 'react'
-import { useState } from 'react'
+import React, {useEffect, useState}from 'react'
 import { loadSingleProduct } from '../../services/mockAPI';
 import ItemDetail from './ItemDetail';
-
+import {useParams} from 'react-router-dom';
 
 function ItemDetailContainer() {
 
     let [item, setItem] = useState({})
 
+
+    const {id} = useParams();
+
+
     useEffect(() => {
-        loadSingleProduct().then((resItem)=> setItem(resItem))
-    }, []);
+        loadSingleProduct(id).then((resItem)=> setItem(resItem))
+    }, [id]);
 
   return (
     <div>

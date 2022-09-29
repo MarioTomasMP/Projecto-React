@@ -51,15 +51,21 @@ export function loadProducts(){
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             resolve(items)
-        }, 2500);
+        }, 1500);
     })
 }
 
-export function loadSingleProduct(){
+
+export function loadSingleProduct(id){
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            resolve(items[4])
-        }, 2500);
+            let findProduct = items.find((item) => {
+                console.log("find", item.id, id)
+                return item.id === Number(id)
+            })
+            if(findProduct)resolve(findProduct)
+            else reject(new Error("No se encontro el producto"))
+        }, 1500)
     })
 }
 
