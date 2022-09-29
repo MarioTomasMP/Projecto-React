@@ -1,7 +1,16 @@
-import React from 'react';
+import React,{useState, useEffect} from 'react';
 import Tarjeta from './Tarjeta';
+import { useParams } from 'react-router-dom'
+import { loadProductsForCategory} from '../../services/mockAPI';
     
   function ItemList(props) {
+    let [item, setItem] = useState({})
+    const {category} = useParams();
+
+
+    useEffect(() => {
+        loadProductsForCategory(category).then((resItem)=> setItem(resItem))
+    }, [category]);
     
       
     return (
@@ -13,6 +22,7 @@ import Tarjeta from './Tarjeta';
                 img = {item.img}
                 title = {item.title}
                 descripcion = {item.detail}
+                categoria = {item.category}
                 precio = {item.price}/>
               );
             })}

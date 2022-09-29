@@ -55,6 +55,18 @@ export function loadProducts(){
     })
 }
 
+export function loadProductsForCategory(category){
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            let categoryItem = items.map((item)=>{
+                return item.category === category
+            })
+            if(categoryItem)resolve(categoryItem)
+            else reject(new Error("No se encontraron los productos"))
+        }, 1500);
+    })
+}
+
 
 export function loadSingleProduct(id){
     return new Promise((resolve, reject) => {

@@ -1,0 +1,24 @@
+.footer {
+    background-color: rgb(14, 13, 13);
+}
+
+.footer-lista{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-lista-redes {
+    padding: 10px;
+    padding-top: 15px;
+    text-decoration: none;
+    list-style: none;
+    color: bisque;
+}
+
+.footer-copy{
+    text-align: center;
+    font-size: small;
+    color: rgb(117, 111, 111);
+}

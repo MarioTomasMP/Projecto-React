@@ -16,7 +16,7 @@ function Productos(props) {
 
 
   return (
-    <div img src="../../Polygon Luminary.svg" className='fondo'>
+    <div>
       <h2>{props.greeting}</h2>
       <div>
           <ItemList items={items}/>
