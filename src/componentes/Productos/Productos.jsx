@@ -1,18 +1,31 @@
 import React, {useState, useEffect} from 'react'
-import Tarjeta from './Tarjeta'
 import "./tarjeta.css"
-import loadProducts  from '../../services/mockAPI'
+import loadProducts,{loadProductsForCategory}  from '../../services/mockAPI'
 import ItemList from '../Productos/itemList'
+import { useParams } from 'react-router-dom';
 
 function Productos(props) {
 
   let [items, setItems] = useState([]);
-  useEffect(
-    ()=>{
-      loadProducts().then (response => {
-        setItems(response)
-      });
-    }, []);
+  const category = useParams().category
+  // useEffect(
+  //   ()=>{
+  //     loadProducts().then (response => {
+  //       setItems(response)
+  //     });
+  //   }, []);
+
+    useEffect(()=> {
+      if(category === undefined){
+        loadProducts().then(response => {
+          setItems(response)
+        });
+      }else {
+        loadProductsForCategory(category)
+        .then(response => setItems(response));
+      }
+    },[category]
+    )
 
 
   return (

@@ -33,7 +33,7 @@ const items=[
         price : 2300,
         detail : "Taza personalizada de Harry Potter, ahora puedes disfrutar tu meriendas y desayunos acompañado de tu personaje favorito",
         stock : 8,
-        category : "tazas",
+        category : "bazar",
         img : "https://http2.mlstatic.com/D_NQ_NP_711756-MLA50572122920_072022-W.jpg"
     },
     {
@@ -51,19 +51,23 @@ export function loadProducts(){
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             resolve(items)
-        }, 1500);
+        }, 1000);
     })
 }
 
 export function loadProductsForCategory(category){
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            let categoryItem = items.map((item)=>{
-                return item.category === category
+            let findProductForCategory = items.filter((item)=>{
+                return item.category === category;
+            });
+            setTimeout(()=>{
+                if(findProductForCategory)resolve(findProductForCategory);
+                else reject(new Error("Items no encontrados"));
             })
-            if(categoryItem)resolve(categoryItem)
-            else reject(new Error("No se encontraron los productos"))
-        }, 1500);
+            // if(categoryItem)resolve(categoryItem)
+            // else reject(new Error("No se encontraron los productos"))
+        }, 500);
     })
 }
 

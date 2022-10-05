@@ -8,9 +8,9 @@ function NavBar () {
       <Link to='/'><img src="../../Logo-mercadito.svg" alt="logo" className="logo"/></Link>
       <ul className= "nav-list">
         <Link className="nav-link" to="/"><li>Home</li></Link>
-        <Link className="nav-link" to="/categoria/ropa"><li>ropa</li></Link>
-        <Link className="nav-link" to="/categoria/accesorios"><li>accesorios</li></Link>
-        <Link className="nav-link" to="/OtraPagina"><li>Productos</li></Link>
+        <Link className="nav-link" to="/accesorios/ropa"><li>ropa</li></Link>
+        <Link className="nav-link" to="/accesorios/accesorios"><li>accesorios</li></Link>
+        <Link className="nav-link" to="/accesorios/bazar"><li>Bazar</li></Link>
 
       </ul>
       <Link to="/cart"><CartWidget/></Link>

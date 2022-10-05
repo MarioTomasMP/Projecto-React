@@ -1,13 +1,14 @@
-import React from 'react'
+import React,{useState} from 'react'
 import Itemcount from '../itemCount/ItemCount'
 import '../Productos/tarjeta.css'
 
 function ItemDetail(props) {
 
-  let stateCart = false;
+  const [itemCountState, setItemCountState] = useState(true)
 
   function handleAddToCart(count){
-    alert(`Agregaste ${count} ${props.title}`);
+    alert(`Agregaste ${count} ${props.title} al carrito`);
+    setItemCountState(false)
   }
 
   return (
@@ -20,8 +21,7 @@ function ItemDetail(props) {
             <span className='detail-price'>${props.price}</span>
             </>
             <>
-            {stateCart === false?
-            <Itemcount onAddToCart={handleAddToCart} initial ={1} stock={props.stock}/> : <button>Finalizar Compra</button>}
+            {itemCountState ? <Itemcount onAddToCart={handleAddToCart} initial ={1} stock={props.stock}/> : <button>Finalizar Compra</button>}
             </>
         </div>
     </div>
