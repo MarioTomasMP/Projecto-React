@@ -1,16 +1,17 @@
 import React, {useState} from 'react';
 import './button.css';
+import '../Productos/tarjeta.css'
 
 /* Hook de useState */
 
-function Button({children}) {
+function Button(props,{children}) {
 
-    
-    let [color, setColor] = useState("brown");
+
     let [colortoggle, setColortoggle] = useState(true);
 
     function handleClick(){
         setColortoggle(!colortoggle)
+        props.onClick();
     }
 
 
@@ -20,7 +21,7 @@ function Button({children}) {
         <button
         style={{color: colortoggle? "brown" : "red"}}
         onClick={handleClick} 
-        className='btn'>
+        className='detail-btn-carrito'>{props.children}
         </button>   
     </div>
   )

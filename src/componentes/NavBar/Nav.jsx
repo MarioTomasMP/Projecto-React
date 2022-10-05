@@ -11,8 +11,9 @@ function NavBar () {
         <Link className="nav-link" to="/categoria/ropa"><li>ropa</li></Link>
         <Link className="nav-link" to="/categoria/accesorios"><li>accesorios</li></Link>
         <Link className="nav-link" to="/OtraPagina"><li>Productos</li></Link>
+
       </ul>
-      <CartWidget/>
+      <Link to="/cart"><CartWidget/></Link>
     </div>
   );
 }

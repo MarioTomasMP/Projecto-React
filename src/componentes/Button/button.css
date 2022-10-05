@@ -1,3 +1,10 @@
+.container-btn{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
 .btn{
     width: 30px;
     height: 30px;
@@ -15,8 +22,9 @@
     transform: scale(1.1);
 }
 
+
 .span{
-    width: 60px;
+    width: 40px;
     padding: 4px 10px;
     background: white;
     position: relative;
@@ -24,4 +32,5 @@
     color: rgb(0, 0, 0);
     box-shadow: 0 0 5px 0 rgba(236, 26, 26, 0.514);
     background: rgba(168, 163, 163, 0.493);
+    text-align: center;
 }
