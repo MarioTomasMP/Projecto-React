@@ -1,11 +1,17 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import { BsCart4 } from 'react-icons/bs';
+import {cartContex} from '../../context/cartContext'
 
 function CartWidget() {
+
+  const {totalItemsInCart} = useContext(cartContex)
+
   return (
     <div>
-      <BsCart4 className='btn-carrito' />
-        {/* <button type='button' className='btn-carrito'><BsCart4 /></button> */}
+      {/* <BsCart4 className='btn-carrito'> */}
+        <span>Carrito</span>
+        <span>{totalItemsInCart()}</span>
+      {/* </BsCart4 > */}
     </div>
   )
 }
