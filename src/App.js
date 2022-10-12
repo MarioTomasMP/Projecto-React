@@ -6,6 +6,7 @@ import ItemDetailContainer from './componentes/itemDetail/ItemDetailContainer';
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import Footer from './componentes/Footer/Footer';
 import CartContexProvider from './context/cartContext';
+import CartView from './componentes/CartView/CartView';
 
 
 function App() {
@@ -19,7 +20,7 @@ function App() {
         <Route path='/' element={<Productos greeting="Bienvenidos a mi tienda geek"/>}/>
         <Route path='/producto/:id' element={<ItemDetailContainer/>}/>
         <Route path='/accesorios/:category' element={<Productos/>}/>
-        {/* <Route path='/cart' element={<Cart/>}/> */}
+        <Route path='/cart' element={<CartView/>}/>
         <Route path='*' element={<h1>404 Page not found</h1>}/>
         </Routes>
 

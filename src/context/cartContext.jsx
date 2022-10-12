@@ -36,6 +36,16 @@ export default function CartContexProvider({children}){
         return total;
     }
 
+    function totalPriceInCart(price, count){
+        let total = 0;
+        cart.forEach(item =>total =  price * count)
+        return total
+    }
+
+    function finalPriceInCart(){
+        
+    }
+
     function clearCart(){
         return setCart([]);
     }
@@ -52,7 +62,7 @@ export default function CartContexProvider({children}){
 
 
     return (
-        <cartContex.Provider value={{cart, addItem, totalItemsInCart, removeItem, clearCart}}>
+        <cartContex.Provider value={{cart, addItem, totalItemsInCart, removeItem, clearCart, totalPriceInCart, finalPriceInCart}}>
             {children}
         </cartContex.Provider>
     )

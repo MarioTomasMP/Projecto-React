@@ -3,6 +3,7 @@ import Button from '../Button/Button';
 import Itemcount from '../itemCount/ItemCount'
 import '../Productos/tarjeta.css'
 import {cartContex} from '../../context/cartContext'
+import { Link } from 'react-router-dom';
 
 function ItemDetail(item) {
 
@@ -54,7 +55,7 @@ function ItemDetail(item) {
             {item.stock === 0 ? (<span>No quedan productos en stock</span>) : (<span>Quedan {item.stock} productos en stock</span>)}
             </>
             <>
-            {itemCount ? <Itemcount onAddToCart={handleAddToCart} initial ={1} stock={item.stock}/> : <Button>Carrito</Button>}
+            {itemCount ? <Itemcount onAddToCart={handleAddToCart} initial ={1} stock={item.stock}/> : <Link to="/cart"><Button>Carrito</Button></Link>}
 
             </>
         </div>
