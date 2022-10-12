@@ -32,7 +32,7 @@ function Productos(props) {
     <div>
       <h2>{props.greeting}</h2>
       <div>
-          <ItemList items={items}/>
+          <ItemList items={items} />
       </div>
     </div>
   )

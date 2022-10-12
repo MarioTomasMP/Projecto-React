@@ -7,11 +7,11 @@ function CartWidget() {
   const {totalItemsInCart} = useContext(cartContex)
 
   return (
-    <div>
-      {/* <BsCart4 className='btn-carrito'> */}
-        <span>Carrito</span>
-        <span>{totalItemsInCart()}</span>
-      {/* </BsCart4 > */}
+    <div className='btn-carrito'>
+        <span className='carrito-count'>
+          <BsCart4/>
+          {totalItemsInCart()}
+        </span>
     </div>
   )
 }
