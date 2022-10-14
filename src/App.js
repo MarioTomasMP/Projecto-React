@@ -9,11 +9,14 @@ import CartContexProvider from './context/cartContext';
 import CartView from './componentes/CartView/CartView';
 
 
+
+
 function App() {
+
   return (
     
-    <BrowserRouter>
     <CartContexProvider>
+    <BrowserRouter>
       <NavBar />
       {/* Rutas */}
       <Routes>
@@ -25,8 +28,9 @@ function App() {
         </Routes>
 
       <Footer/>
+      </BrowserRouter>
       </CartContexProvider>
-    </BrowserRouter>
+    
     
   );
 }

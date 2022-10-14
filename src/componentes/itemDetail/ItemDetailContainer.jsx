@@ -1,5 +1,5 @@
 import React, {useEffect, useState}from 'react'
-import { loadSingleProduct } from '../../services/mockAPI';
+import { loadSingleProduct } from '../../services/firestore';
 import ItemDetail from './ItemDetail';
 import {useParams} from 'react-router-dom';
 import { Waveform } from '@uiball/loaders'
