@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs, doc, getDoc } from "firebase/firestore"
+import { getFirestore, collection, getDocs, doc, getDoc, addDoc } from "firebase/firestore"
 
 const firebaseConfig = {
   apiKey: "AIzaSyCv0hWL2D-_1IBzbOm6BKh2PwWfFM0FnUw",
@@ -33,9 +33,16 @@ export async function loadSingleProduct(idParams){
     return {...docSnapshot.data(), id: docSnapshot.id};
 }
 
-export async function loadProductsForCategory(){
-    let categories = ["ropa", "bazar", "accesorios"]
-    const productsCollection = collection(database, "ropa")
+export async function loadProductsForCategory(category){
+    let selectCategory;
+    if(category === "ropa"){
+        selectCategory = "ropa";
+    }else if(category === "bazar"){
+        selectCategory = "bazar";
+    }else if(category === "accesorios"){
+        selectCategory = "accesorios"
+    }
+    const productsCollection = collection(database, selectCategory)
     let snapshotDB = await getDocs(productsCollection);
     let dataDocs = snapshotDB.docs.map(document => {
         let docProps = {...document.data(),id: document.id}
@@ -44,6 +51,14 @@ export async function loadProductsForCategory(){
 
 
     return dataDocs;
+}
+
+export async function buyOrderCreate(order){
+    console.log(order)
+    const collectionOrders = collection(database, "orders")
+    let response = await addDoc(collectionOrders, order);
+    
+    return response.id;
 }
 
 export default app;

@@ -7,7 +7,7 @@ import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import Footer from './componentes/Footer/Footer';
 import CartContexProvider from './context/cartContext';
 import CartView from './componentes/CartView/CartView';
-
+import Checkout from './componentes/Checkout/Checkout';
 
 
 
@@ -24,6 +24,7 @@ function App() {
         <Route path='/producto/:id' element={<ItemDetailContainer/>}/>
         <Route path='/accesorios/:category' element={<Productos/>}/>
         <Route path='/cart' element={<CartView/>}/>
+        <Route path='/checkout/:response' element={<Checkout/>}/>
         <Route path='*' element={<h1>404 Page not found</h1>}/>
         </Routes>
 

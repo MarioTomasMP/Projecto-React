@@ -11,7 +11,7 @@ function Button(props,{children}) {
 
     function handleClick(){
         setColortoggle(!colortoggle)
-        props.onClick();
+        props.onClick && props.onClick();
     }
 
 

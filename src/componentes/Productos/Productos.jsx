@@ -7,12 +7,11 @@ import { useParams } from 'react-router-dom';
 function Productos(props) {
 
   let [items, setItems] = useState([]);
-  const category = useParams().category
+  const category = useParams().category;
 
 
     useEffect(()=> {
       if(category === undefined){
-        console.log("--->", loadProducts())
         loadProducts().then(response => {
           setItems(response)
         });

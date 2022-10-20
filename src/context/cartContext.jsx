@@ -43,7 +43,9 @@ export default function CartContexProvider({children}){
     }
 
     function finalPriceInCart(){
-        
+        let total = 0;
+        cart.forEach((item) =>total += item.count * item.price)
+        return total
     }
 
     function clearCart(){
