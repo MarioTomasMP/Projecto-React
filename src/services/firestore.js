@@ -26,6 +26,8 @@ export async function loadProducts(){
 }
 
 export async function loadSingleProduct(idParams){
+    const cat = ["ropa", "accesorios", "bazar"];
+    
     const docRef = doc(database, "ropa", idParams);
     const docSnapshot = await getDoc(docRef);
 

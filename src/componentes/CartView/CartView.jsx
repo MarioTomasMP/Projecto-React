@@ -1,17 +1,18 @@
-import React,{ useState } from 'react'
-import { useContext } from 'react'
-import { cartContex } from '../../context/cartContext'
+import React,{ useState } from 'react';
+import { useContext } from 'react';
+import { cartContex } from '../../context/cartContext';
 import Button from '../Button/Button';
 import { Link, useNavigate } from 'react-router-dom';
-import { buyOrderCreate }  from '../../services/firestore'
+
 import '../CartView/cartView.css'
+import CheckoutForm from '../CheckoutForm/CheckoutForm';
 
 function CartView() {
 
   const [returnHome, setReturnHome] = useState(true)
   const context = useContext(cartContex);
   const {cart, removeItem, clearCart, totalPriceInCart, finalPriceInCart} = context;
-  const navigate = useNavigate();
+
 
 
   function handleDeleteItem(id){
@@ -25,29 +26,15 @@ function CartView() {
 
 
 
-let emptyCart = false;
+let emptyCart = cart.length === 0;
 
 if(emptyCart){
    return <div>
-      <h2>
-        No hay Productos en tu carrito
-      </h2>
+        No elegiste ningun producto
     </div>
 }
 
-function checkout(){
-  const order = {
-    buyer : {
-      name : "Tomas",
-      phone : "2477568912",
-      email : "Tomipro@gmail.com"
-    },
-    items: cart,
-    total: finalPriceInCart()
-  }
-  buyOrderCreate(order)
-  .then(response => {navigate(`/checkout/${response}`)});
-}
+
 
   return (
     <div className='container-cartView'>
@@ -62,10 +49,12 @@ function checkout(){
         </div>
       ))}
       <>
-      {returnHome ? <Button onClick={() =>handleClearCart()}>Limpiar Carrito</Button> : 
+      {returnHome ? <Button onClick={() =>handleClearCart()}>Limpiar Carrito</Button> :
       <Link to='/'><Button>volver</Button></Link>}
       <span>{finalPriceInCart()}</span>
-      <Button onClick = {() => checkout()}>Realizar compra</Button>
+      </>
+      <>
+      <CheckoutForm/>
       </>
     </div>
   )

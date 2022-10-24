@@ -22,7 +22,7 @@ function ItemDetailContainer() {
         console.log(errorMsj.message)
         setError(errorMsj.message);
     })
-        // .finally(() => setIsLoading(false));
+        .finally(() => setIsLoading(false));
     }, [id]);
 
     if(!item.id) {
