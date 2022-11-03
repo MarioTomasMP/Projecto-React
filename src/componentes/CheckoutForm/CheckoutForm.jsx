@@ -10,6 +10,7 @@ function CheckoutForm() {
     const {cart, finalPriceInCart} = context;
     const [form, setForm]=useState({
         name: "",
+        surname: "",
         phone: "",
         email:""
     })
@@ -25,7 +26,7 @@ function CheckoutForm() {
         total: finalPriceInCart()
       }
       buyOrderCreate(order)
-      .then(response => {navigate(`/checkout/${response}`);
+      .then(response => {navigate(`/checkout/${response.id}`);
     });
     }
 
@@ -53,6 +54,17 @@ function CheckoutForm() {
                 />
             </div>
             <div>
+                <label>Apellido</label>
+                <input
+                    value = {form.surname}
+                    onChange={handleChange}
+                    name='surname'
+                    type='text'
+                    placeholder='Apellido'
+                    required
+                />
+            </div>
+            <div>
                 <label>Email</label>
                 <input
                     value = {form.email}
@@ -60,7 +72,7 @@ function CheckoutForm() {
                     name='email'
                     type='text'
                     placeholder='Email'
-                    requiredhandleChange
+                    required
                 />
             </div>
             <div>
@@ -81,4 +93,4 @@ function CheckoutForm() {
   )
 }
 
-export default CheckoutForm
+export default CheckoutForm;

@@ -19,7 +19,6 @@ function ItemDetailContainer() {
         loadSingleProduct(id)
         .then((resItem)=> setItem(resItem))
         .catch((errorMsj)=> {
-        console.log(errorMsj.message)
         setError(errorMsj.message);
     })
         .finally(() => setIsLoading(false));

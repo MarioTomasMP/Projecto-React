@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs, doc, getDoc, addDoc } from "firebase/firestore"
+import { getFirestore, collection, getDocs, doc, getDoc,query, where, addDoc } from "firebase/firestore"
 
 const firebaseConfig = {
   apiKey: "AIzaSyCv0hWL2D-_1IBzbOm6BKh2PwWfFM0FnUw",
@@ -25,35 +25,58 @@ export async function loadProducts(){
     return dataDocs;
 }
 
-export async function loadSingleProduct(idParams){
-    const cat = ["ropa", "accesorios", "bazar"];
-    
-    const docRef = doc(database, "ropa", idParams);
-    const docSnapshot = await getDoc(docRef);
-
-
-    return {...docSnapshot.data(), id: docSnapshot.id};
-}
-
-export async function loadProductsForCategory(category){
-    let selectCategory;
-    if(category === "ropa"){
-        selectCategory = "ropa";
-    }else if(category === "bazar"){
-        selectCategory = "bazar";
-    }else if(category === "accesorios"){
-        selectCategory = "accesorios"
+export async function loadSingleProduct(id){
+    try{
+        const docRef = doc(database, "ropa", id);
+        const docSnapshot = await getDoc(docRef);
+        return {...docSnapshot.data(), id: docSnapshot.id};
+    }catch(error){
+        
     }
-    const productsCollection = collection(database, selectCategory)
-    let snapshotDB = await getDocs(productsCollection);
-    let dataDocs = snapshotDB.docs.map(document => {
-        let docProps = {...document.data(),id: document.id}
-        return docProps
-    })
+    
+    // const docRef = doc(database, "ropa", idParams);
+    // const docSnapshot = await getDoc(docRef);
 
 
-    return dataDocs;
+    // return {...docSnapshot.data(), id: docSnapshot.id};
 }
+
+// export async function loadProductsForCategory(category){
+//     let selectCategory;
+//     if(category === "ropa"){
+//         selectCategory = "ropa";
+//     }else if(category === "bazar"){
+//         selectCategory = "bazar";
+//     }else if(category === "accesorios"){
+//         selectCategory = "accesorios"
+//     }
+//     const productsCollection = collection(database, selectCategory)
+//     let snapshotDB = await getDocs(productsCollection);
+//     let dataDocs = snapshotDB.docs.map(document => {
+//         let docProps = {...document.data(),id: document.id}
+//         return docProps
+//     })
+
+
+//     return dataDocs;
+// }
+
+export async function loadProductsForCategory(category) {
+    const productsCollection = collection(database, category);
+    const queryCategory = query(
+        productsCollection,
+      where("category", "==", category)
+    );
+  
+    const snapshotDB = await getDocs(queryCategory);
+  
+    let dataDocs = snapshotDB.docs.map((documento) => {
+      let docF = { ...documento.data(), id: documento.id };
+      return docF;
+    });
+  
+    return dataDocs;
+  }
 
 export async function buyOrderCreate(order){
     console.log(order)

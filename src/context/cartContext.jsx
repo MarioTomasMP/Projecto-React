@@ -32,7 +32,6 @@ export default function CartContexProvider({children}){
     function totalItemsInCart(){
         let total = 0;
         cart.forEach(item => total += item.count);
-        console.log(total)
         return total;
     }
 

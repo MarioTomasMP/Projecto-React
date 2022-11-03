@@ -2,7 +2,7 @@ import React,{ useState } from 'react';
 import { useContext } from 'react';
 import { cartContex } from '../../context/cartContext';
 import Button from '../Button/Button';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 
 import '../CartView/cartView.css'
 import CheckoutForm from '../CheckoutForm/CheckoutForm';
