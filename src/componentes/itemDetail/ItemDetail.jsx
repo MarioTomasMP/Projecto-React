@@ -4,18 +4,36 @@ import Itemcount from '../itemCount/ItemCount'
 import '../Productos/tarjeta.css'
 import {cartContex} from '../../context/cartContext'
 import { Link } from 'react-router-dom';
+import swal from 'sweetalert2';
 
-function ItemDetail(item) {
+function ItemDetail({item}) {
 
   const [itemCount, setItemCount]=useState(true);
   const { addItem } = useContext(cartContex);
 
+  const Toast = swal.mixin({
+    toast: true,
+    position: 'top-right',
+    showConfirmButton: false,
+    timer: 1500,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener('mouseenter', swal.stopTimer)
+      toast.addEventListener('mouseleave', swal.resumeTimer)
+    }
+  })
+
+
 
 
   function handleAddToCart(count){
-    alert(`Agregaste ${count} ${item.title} al carrito`);
-    setItemCount(false)
+    
     addItem(item, count)
+    Toast.fire({
+      icon: 'success',
+      title: `se agregaron ${count} productos`
+    });
+    setItemCount(false)
   }
 
   const styleOffer = {
@@ -27,12 +45,8 @@ function ItemDetail(item) {
 
   function itemPriceOffer(price, offer){
     let total = 0
-    if(offer === 75){
-      total = (price / 4)
-    }else if(offer === 50){
-      total = (price / 2)
-    } else if(offer === 25){
-      total = ((price / 2.50)*1.875)
+    if(offer === true){
+      total = (price / 2);
     }else{
       total = price
     }
@@ -47,7 +61,7 @@ function ItemDetail(item) {
           <>
            <span className='detail-price' style={stylePrice} >$ {itemPriceOffer(item.price, item.offer)}</span> 
 
-            <span style={styleOffer}>{item.offer}% Off</span>
+            <span style={styleOffer}>50% Off</span>
             <span style={{display:'none'}}>{item.id}</span>
             <img className='detail-img' src={item.img} alt="" />
             <h3 className='detail-title'>{item.title}</h3>

@@ -8,7 +8,7 @@ import { Waveform } from '@uiball/loaders'
 
 function ItemDetailContainer() {
 
-    const [item, setItem] = useState({});
+    const [item, setItem] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(false);
 
@@ -17,11 +17,11 @@ function ItemDetailContainer() {
 
     useEffect(() => {
         loadSingleProduct(id)
-        .then((resItem)=> setItem(resItem))
+        .then((resItem)=> {setItem(resItem)})
         .catch((errorMsj)=> {
         setError(errorMsj.message);
     })
-        .finally(() => setIsLoading(false));
+        .finally(() => setIsLoading(true));
     }, [id]);
 
     if(!item.id) {
@@ -47,7 +47,7 @@ function ItemDetailContainer() {
 
   return (
     <div>
-        <ItemDetail
+        <ItemDetail item = {item}
             key = {item.id}
             id = {item.id}
             offer = {item.offer}
@@ -61,4 +61,4 @@ function ItemDetailContainer() {
   )
 }
 
-export default ItemDetailContainer
+export default ItemDetailContainer;

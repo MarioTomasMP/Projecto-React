@@ -9,8 +9,6 @@ function Tarjeta(props) {
   const url = `/producto/${props.id}`
   const categoria = `/producto/${props.category}`
 
-  let classPrice = `priceTag ${props.offer && "offerTag"}`
-
   const styleOffer = {
     display: props.offer ? 'inline' : 'none',
     color: 'green'
@@ -18,12 +16,8 @@ function Tarjeta(props) {
 
   function propPriceOffer(price, offer){
     let total = 0
-    if(offer === 75){
-      total = (price / 4)
-    }else if(offer === 50){
+    if(offer === true){
       total = (price / 2)
-    } else if(offer === 25){
-      total = ((price / 2.50)*1.875)
     }else{
       total = price
     }
@@ -39,11 +33,8 @@ function Tarjeta(props) {
         <Card.Text className='tarjeta-detail'>
           {props.descripcion}
         </Card.Text>
-        <span style={styleOffer}>{props.offer}% Off</span>
+        <span style={styleOffer}>50% Off</span>
         <h4 className='tarjeta-detail'>$ {propPriceOffer(props.precio, props.offer)}</h4>
-        
-
-        {/* <span className='detail-price' style={stylePrice} >$ {itemPriceOffer(item.price, item.offer)}</span> */}
 
         <Link to={url}>
           <button className='tarjeta-btn'>

@@ -3,7 +3,7 @@ import "./body.css"
 
 function Body() {
   return (
-    <div><img src="../../Polygon Luminary.svg" alt="banner" /></div>
+    <div><img style={{width:"100%"}} src="../../Polygon Luminary.svg" alt="banner" /></div>
   )
 }
 

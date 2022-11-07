@@ -8,10 +8,6 @@ function CartWidget() {
 
   return (
     <div className='btn-carrito'>
-        {/* <span className='carrito-count'>
-          <BsCart4/>
-          {totalItemsInCart()}
-        </span> */}
         {totalItemsInCart() === 0 ? <span className='carrito-count'>
           <BsCart4/>
         </span> : <span className='carrito-count'>
